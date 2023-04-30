@@ -1,0 +1,136 @@
+/* reset default css styles */
+
+*,
+*::before,
+*::after {
+      padding: 0; margin: 0;
+      box-sizing: border-box;
+}
+
+html {
+      font-family: sans-serif;
+      font-size: 16px;
+      color: #33444d;
+      line-height: 1.75;
+}
+
+body {
+      width: 100vw;
+      height: 100vh;
+      background-color: #fcfefd;
+}
+
+button, 
+[contenteditable="true"] {
+      font: inherit;
+      color: inherit;
+      line-height: 1;
+      border: none;
+      outline: none;
+      background: none;
+}
+
+button {
+      user-select: none;
+      cursor: pointer;
+}
+
+/* container */
+
+.container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+}
+
+/* bubble */
+
+.bubble-container {
+      width: 100%;
+      flex-grow: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+      overflow: hidden auto;
+}
+
+.bubble {
+      display: flex;
+      flex-direction: column;
+      transform: scale(0);
+      opacity: 0;
+      animation: bubble 0.2s both;
+}
+
+.bubble-message {
+      white-space: pre;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #1f292e;
+}
+
+.bubble-name {
+      font-size: 0.8em;
+      opacity: 0.8;
+}
+
+.bubble-out {
+      align-self: flex-end;
+      align-items: flex-end;
+}
+
+.bubble-in > .bubble-message {
+      border-radius: 15px 15px 15px 0;
+}
+
+.bubble-out > .bubble-message {
+      border-radius: 15px 15px 0 15px;
+}
+
+@keyframes bubble {
+      to {
+            transform: scale(1);
+            opacity: 1;
+      }
+}
+
+/* text input */
+
+.text-container {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 20px;
+}
+
+.text-input {
+      white-space: pre-wrap;
+      line-height: 1.75;
+      flex-grow: 1;
+      max-height: 300px;
+      padding: 15px 20px;
+      border-radius: 10px;
+      background-color: #e0e7eb;
+      overflow: auto;
+      transition: 0.2s;
+}
+
+.text-input:focus {
+      box-shadow: 0 0 0 2px #1f292e;
+}
+
+.text-send {
+      width: 3.5rem;
+      height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #fff;
+      background-color: #1f292e;
+}
